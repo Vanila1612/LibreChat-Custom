@@ -134,11 +134,11 @@ server.tool(
 
 server.tool(
   'aie_lookup_entity_full',
-  'Search an entity and return complete backend detail JSON for the best matching result. Use this when the user asks LibreChat to return/export JSON, full information, full profile, customer 360, collateral detail, relationships, management, products, or raw Excel fields for a company/person lookup.',
+  'Search an entity and return complete backend detail JSON for matching results. Use this when the user asks LibreChat to return/export JSON, full information, full profile, customer 360, collateral detail, relationships, management, products, raw Excel fields, or all matches for a company/person lookup. For common names, return multiple details instead of only the first match.',
   {
     q: z.string(),
     limit: z.number().int().min(1).max(100).default(20),
-    detail_limit: z.number().int().min(1).max(5).default(1),
+    detail_limit: z.number().int().min(1).max(20).default(10),
   },
   async ({ q, limit, detail_limit }) => {
     const search = await requestJSON({
@@ -178,6 +178,75 @@ server.tool(
       search,
       details,
       note: 'search contains summary results; details contains full backend profile/customer_360 JSON for the top matches.',
+    });
+  },
+);
+
+server.tool(
+  'aie_search_customer360',
+  'Search customer 360 entities by name and return all matched people/companies with customer codes. Use this when a name appears in many tables, many sheets, or many customer records, and the user wants all occurrences/matches rather than a single resolved person.',
+  {
+    q: z.string(),
+    limit: z.number().int().min(1).max(100).default(50),
+  },
+  async ({ q, limit }) => {
+    const result = await requestJSON({
+      path: '/api/customer-360/search',
+      query: { q, limit },
+      timeoutMs: 30000,
+    });
+
+    return toolText(result);
+  },
+);
+
+server.tool(
+  'aie_lookup_customer360_full',
+  'Search customer 360 entities by name and return full customer 360 detail for multiple matched people/companies. Use this for questions like "person appears in many tables", "show all records", "all sheets", "all occurrences", or "full JSON for every match".',
+  {
+    q: z.string(),
+    limit: z.number().int().min(1).max(100).default(50),
+    detail_limit: z.number().int().min(1).max(20).default(10),
+  },
+  async ({ q, limit, detail_limit }) => {
+    const search = await requestJSON({
+      path: '/api/customer-360/search',
+      query: { q, limit },
+      timeoutMs: 30000,
+    });
+
+    const results = Array.isArray(search.data?.results) ? search.data.results : [];
+    const details = await Promise.all(
+      results.slice(0, detail_limit).map(async (result) => {
+        const entityType = result.entity_type;
+        const entityID = result.entity_id;
+
+        if (!entityType || !entityID) {
+          return {
+            search_result: result,
+            detail: {
+              ok: false,
+              status: 400,
+              statusText: 'Missing entity_type/entity_id in customer 360 search result.',
+              data: null,
+            },
+          };
+        }
+
+        return {
+          search_result: result,
+          detail: await requestJSON({
+            path: `/api/customer-360/entity/${encodeURIComponent(entityType)}/${encodeURIComponent(entityID)}`,
+            timeoutMs: 60000,
+          }),
+        };
+      }),
+    );
+
+    return toolText({
+      search,
+      details,
+      note: 'search contains all customer 360 matches; details contains full customer 360 JSON for the top matches.',
     });
   },
 );
