@@ -94,7 +94,7 @@ export default defineConfig(({ command }) => ({
         short_name: 'LibreChat',
         display: 'standalone',
         background_color: '#000000',
-        theme_color: '#009688',
+        theme_color: '#B01C3A',
         icons: [
           {
             src: 'assets/favicon-32x32.png',

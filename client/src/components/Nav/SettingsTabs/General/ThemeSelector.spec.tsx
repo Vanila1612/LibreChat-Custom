@@ -56,4 +56,21 @@ describe('ThemeSelector', () => {
       expect(mockOnChange).toHaveBeenCalledWith('dark');
     });
   });
+
+  it('includes the Agribank theme option', () => {
+    global.ResizeObserver = class MockedResizeObserver {
+      observe = jest.fn();
+      unobserve = jest.fn();
+      disconnect = jest.fn();
+    };
+    const { getByText, getByTestId } = render(
+      <RecoilRoot>
+        <ThemeSelector theme="system" onChange={mockOnChange} />
+      </RecoilRoot>,
+    );
+
+    fireEvent.click(getByTestId('theme-selector'));
+
+    expect(getByText('Agribank')).toBeInTheDocument();
+  });
 });

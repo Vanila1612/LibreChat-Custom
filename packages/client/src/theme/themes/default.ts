@@ -13,41 +13,41 @@ export const defaultTheme: IThemeRGB = {
   'rgb-text-warning': '245 158 11', // #f59e0b (amber-500)
 
   // Ring colors
-  'rgb-ring-primary': '89 89 89', // #595959 (gray-500)
+  'rgb-ring-primary': '176 28 58', // #B01C3A (Agribank primary)
 
   // Header colors
   'rgb-header-primary': '255 255 255', // #fff (white)
-  'rgb-header-hover': '247 247 248', // #f7f7f8 (gray-50)
-  'rgb-header-button-hover': '247 247 248', // #f7f7f8 (gray-50)
+  'rgb-header-hover': '245 237 238', // #F5EDEE (Agribank primary light)
+  'rgb-header-button-hover': '245 237 238', // #F5EDEE (Agribank primary light)
 
   // Surface colors
-  'rgb-surface-active': '236 236 236', // #ececec (gray-100)
-  'rgb-surface-active-alt': '227 227 227', // #e3e3e3 (gray-200)
-  'rgb-surface-hover': '227 227 227', // #e3e3e3 (gray-200)
-  'rgb-surface-hover-alt': '205 205 205', // #cdcdcd (gray-300)
+  'rgb-surface-active': '250 243 244', // #FAF3F4 (Agribank row hover)
+  'rgb-surface-active-alt': '245 237 238', // #F5EDEE (Agribank primary light)
+  'rgb-surface-hover': '245 237 238', // #F5EDEE (Agribank primary light)
+  'rgb-surface-hover-alt': '250 243 244', // #FAF3F4 (Agribank row hover)
   'rgb-surface-primary': '255 255 255', // #fff (white)
-  'rgb-surface-primary-alt': '247 247 248', // #f7f7f8 (gray-50)
-  'rgb-surface-primary-contrast': '236 236 236', // #ececec (gray-100)
-  'rgb-surface-secondary': '247 247 248', // #f7f7f8 (gray-50)
-  'rgb-surface-secondary-alt': '227 227 227', // #e3e3e3 (gray-200)
-  'rgb-surface-tertiary': '236 236 236', // #ececec (gray-100)
+  'rgb-surface-primary-alt': '248 248 248', // #F8F8F8 (Agribank background)
+  'rgb-surface-primary-contrast': '245 237 238', // #F5EDEE (Agribank primary light)
+  'rgb-surface-secondary': '248 248 248', // #F8F8F8 (Agribank background)
+  'rgb-surface-secondary-alt': '250 243 244', // #FAF3F4 (Agribank row hover)
+  'rgb-surface-tertiary': '245 237 238', // #F5EDEE (Agribank primary light)
   'rgb-surface-tertiary-alt': '255 255 255', // #fff (white)
   'rgb-surface-dialog': '255 255 255', // #fff (white)
-  'rgb-surface-submit': '4 120 87', // #047857 (green-700)
-  'rgb-surface-submit-hover': '6 95 70', // #065f46 (green-800)
+  'rgb-surface-submit': '176 28 58', // #B01C3A (Agribank primary)
+  'rgb-surface-submit-hover': '152 23 51', // #981733 (Agribank primary hover)
   'rgb-surface-destructive': '185 28 28', // #b91c1c (red-700)
   'rgb-surface-destructive-hover': '153 27 27', // #991b1b (red-800)
   'rgb-surface-chat': '255 255 255', // #fff (white)
 
   // Border colors
-  'rgb-border-light': '227 227 227', // #e3e3e3 (gray-200)
-  'rgb-border-medium': '205 205 205', // #cdcdcd (gray-300)
-  'rgb-border-medium-alt': '205 205 205', // #cdcdcd (gray-300)
-  'rgb-border-heavy': '153 150 150', // #999696 (gray-400)
-  'rgb-border-xheavy': '89 89 89', // #595959 (gray-500)
+  'rgb-border-light': '231 183 192', // #E7B7C0 (Agribank border)
+  'rgb-border-medium': '231 183 192', // #E7B7C0 (Agribank border)
+  'rgb-border-medium-alt': '231 183 192', // #E7B7C0 (Agribank border)
+  'rgb-border-heavy': '231 183 192', // #E7B7C0 (Agribank border)
+  'rgb-border-xheavy': '176 28 58', // #B01C3A (Agribank primary)
 
   // Brand colors
-  'rgb-brand-purple': '171 104 255', // #ab68ff
+  'rgb-brand-purple': '176 28 58', // #B01C3A (Agribank primary)
 
   // Presentation
   'rgb-presentation': '255 255 255', // #fff (white)

@@ -13,9 +13,11 @@ import applyTheme from '../utils/applyTheme';
 const THEME_KEY = 'color-theme';
 const THEME_COLORS_KEY = 'theme-colors';
 const THEME_NAME_KEY = 'theme-name';
+const THEME_CLASS_NAMES = ['light', 'dark', 'agribank'];
+const VALID_THEMES = ['light', 'dark', 'system', 'agribank'];
 
 type ThemeContextType = {
-  theme: string; // 'light' | 'dark' | 'system'
+  theme: string; // 'light' | 'dark' | 'system' | 'agribank'
   setTheme: (theme: string) => void;
   themeRGB?: IThemeRGB;
   setThemeRGB: (colors?: IThemeRGB) => void;
@@ -26,7 +28,7 @@ type ThemeContextType = {
 
 // Export ThemeContext so it can be imported from hooks
 export const ThemeContext = createContext<ThemeContextType>({
-  theme: 'system',
+  theme: 'agribank',
   setTheme: () => undefined,
   setThemeRGB: () => undefined,
   setThemeName: () => undefined,
@@ -67,19 +69,19 @@ const isValidThemeColors = (value: unknown): value is IThemeRGB => {
 };
 
 /**
- * Get initial theme from localStorage or default to 'system'
+ * Get initial theme from localStorage or default to the company theme
  */
 const getInitialTheme = (): string => {
-  if (typeof window === 'undefined') return 'system';
+  if (typeof window === 'undefined') return 'agribank';
   try {
     const stored = localStorage.getItem(THEME_KEY);
-    if (stored && ['light', 'dark', 'system'].includes(stored)) {
+    if (stored && VALID_THEMES.includes(stored)) {
       return stored;
     }
   } catch {
     // localStorage not available
   }
-  return 'system';
+  return 'agribank';
 };
 
 /**
@@ -195,8 +197,11 @@ export function ThemeProvider({
     const root = window.document.documentElement;
     const darkMode = isDark(currentTheme);
 
-    root.classList.remove(darkMode ? 'light' : 'dark');
+    root.classList.remove(...THEME_CLASS_NAMES);
     root.classList.add(darkMode ? 'dark' : 'light');
+    if (currentTheme === 'agribank') {
+      root.classList.add('agribank');
+    }
   }, []);
 
   // Apply theme mode whenever theme changes
@@ -226,7 +231,7 @@ export function ThemeProvider({
 
   // Reset theme function
   const resetTheme = useCallback(() => {
-    setTheme('system');
+    setTheme('agribank');
     setThemeRGB(undefined);
     setThemeName(undefined);
     // Remove any custom CSS variables

@@ -108,6 +108,13 @@ const ConversationsSection = memo(() => {
       role="region"
       aria-label={localize('com_ui_chat_history')}
     >
+      <div className="px-4 pb-2 pt-3">
+        <img
+          src="assets/agribank-logo-horizontal.png"
+          alt="Agribank"
+          className="h-11 w-full object-contain object-left"
+        />
+      </div>
       <div className="flex items-center gap-0.5 px-3">
         {hasAccessToBookmarks && (
           <Suspense fallback={null}>

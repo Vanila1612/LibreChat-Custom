@@ -8,11 +8,22 @@
 
 /* Custom Variables */
 :root {
-  --agribank-red: #c51f4a;
-  --agribank-red-hover: #aa173d;
-  --agribank-red-soft: #fff3f4;
-  --agribank-red-muted: #f9e8eb;
-  --agribank-border: #e9d7db;
+  --agribank-red: #b01c3a;
+  --agribank-red-hover: #981733;
+  --agribank-red-soft: #f5edee;
+  --agribank-red-muted: #faf3f4;
+  --agribank-border: #e7b7c0;
+  --ab-primary: #b01c3a;
+  --ab-primary-hover: #981733;
+  --ab-primary-light: #f5edee;
+  --ab-border: #e7b7c0;
+  --ab-background: #f8f8f8;
+  --ab-surface: #ffffff;
+  --ab-text-primary: #333333;
+  --ab-text-secondary: #666666;
+  --ab-success: #28a745;
+  --ab-warning: #ffc107;
+  --ab-error: #dc3545;
   --white: #fff;
   --black: #000;
   --gray-20: #ececf1;
@@ -72,40 +83,40 @@
   --markdown-font-size: 1rem;
 }
 html {
-  --brand-purple: var(--agribank-red);
+  --brand-purple: #ab68ff;
   --presentation: var(--white);
-  --text-primary: #282327;
-  --text-secondary: #635b60;
-  --text-secondary-alt: #7d7379;
-  --text-tertiary: #978c92;
+  --text-primary: #212121;
+  --text-secondary: #424242;
+  --text-secondary-alt: #595959;
+  --text-tertiary: #595959;
   --text-warning: var(--amber-500);
   --text-destructive: var(--red-600);
-  --ring-primary: var(--agribank-red);
+  --ring-primary: #10a37f;
   --header-primary: var(--white);
-  --header-hover: var(--agribank-red-soft);
-  --header-button-hover: var(--agribank-red-soft);
-  --surface-active: var(--agribank-red-muted);
-  --surface-active-alt: var(--agribank-red-soft);
-  --surface-hover: var(--agribank-red-soft);
-  --surface-hover-alt: var(--agribank-red-muted);
+  --header-hover: var(--gray-50);
+  --header-button-hover: var(--gray-50);
+  --surface-active: var(--gray-100);
+  --surface-active-alt: var(--gray-50);
+  --surface-hover: var(--gray-50);
+  --surface-hover-alt: var(--gray-100);
   --surface-primary: var(--white);
-  --surface-primary-alt: #fff9f8;
-  --surface-primary-contrast: var(--agribank-red-soft);
-  --surface-secondary: #fffafa;
-  --surface-secondary-alt: var(--agribank-red-muted);
-  --surface-tertiary: var(--agribank-red-soft);
+  --surface-primary-alt: var(--gray-50);
+  --surface-primary-contrast: var(--gray-50);
+  --surface-secondary: var(--gray-50);
+  --surface-secondary-alt: var(--gray-100);
+  --surface-tertiary: var(--gray-100);
   --surface-tertiary-alt: var(--white);
   --surface-dialog: var(--white);
-  --surface-submit: var(--agribank-red);
-  --surface-submit-hover: var(--agribank-red-hover);
+  --surface-submit: #000000;
+  --surface-submit-hover: #333333;
   --surface-destructive: var(--red-700);
   --surface-destructive-hover: var(--red-800);
   --surface-chat: var(--white);
-  --border-light: #eee5e7;
-  --border-medium-alt: var(--agribank-border);
-  --border-medium: var(--agribank-border);
-  --border-heavy: #d7a7b2;
-  --border-xheavy: var(--agribank-red);
+  --border-light: var(--gray-200);
+  --border-medium-alt: var(--gray-300);
+  --border-medium: var(--gray-300);
+  --border-heavy: var(--gray-400);
+  --border-xheavy: var(--gray-500);
   --border-destructive: var(--red-600);
   /* These are test styles */
 
@@ -134,6 +145,137 @@ html {
   --chart-5: 27 87% 67%;
   --switch-unchecked: 0 0% 58%;
 }
+
+html.agribank {
+  --brand-purple: var(--agribank-red);
+  --presentation: #fff8f4;
+  --text-primary: #282327;
+  --text-secondary: #635b60;
+  --text-secondary-alt: #7d7379;
+  --text-tertiary: #978c92;
+  --text-warning: var(--amber-500);
+  --text-destructive: var(--red-600);
+  --ring-primary: var(--agribank-red);
+  --header-primary: #fff8f4;
+  --header-hover: #f2d7dd;
+  --header-button-hover: #f2d7dd;
+  --surface-active: #f3d2da;
+  --surface-active-alt: #f1cbd5;
+  --surface-hover: #f5dce2;
+  --surface-hover-alt: #fff0ec;
+  --surface-primary: #fffaf7;
+  --surface-primary-alt: #fff0ec;
+  --surface-primary-contrast: #f1cbd5;
+  --surface-secondary: #fff2ee;
+  --surface-secondary-alt: #ffe7e1;
+  --surface-tertiary: #f5dce2;
+  --surface-tertiary-alt: var(--white);
+  --surface-dialog: var(--white);
+  --surface-submit: var(--agribank-red);
+  --surface-submit-hover: var(--agribank-red-hover);
+  --surface-destructive: var(--red-700);
+  --surface-destructive-hover: var(--red-800);
+  --surface-chat: #fffaf7;
+  --border-light: #dda1ad;
+  --border-medium-alt: #d48494;
+  --border-medium: #d48494;
+  --border-heavy: #bd536c;
+  --border-xheavy: var(--agribank-red);
+  --border-destructive: var(--red-600);
+
+  --background: 18 100% 99%;
+  --foreground: 330 8% 15%;
+  --card: 18 100% 99%;
+  --card-foreground: 330 8% 15%;
+  --primary: 345 73% 45%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 350 100% 98%;
+  --secondary-foreground: 345 73% 38%;
+  --muted: 350 38% 96%;
+  --muted-foreground: 330 7% 45%;
+  --accent: 350 100% 97%;
+  --accent-foreground: 345 73% 38%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 346 39% 84%;
+  --input: 346 39% 84%;
+  --ring: 345 73% 45%;
+  --radius: 0.375rem;
+  --chart-1: 345 73% 45%;
+  --chart-2: 44 84% 55%;
+  --chart-3: 150 44% 40%;
+  --chart-4: 18 75% 64%;
+  --chart-5: 218 72% 55%;
+  --switch-unchecked: 0 0% 58%;
+}
+
+html.agribank body,
+html.agribank #root {
+  background: #fff3ef;
+}
+
+html.agribank main[role='main'] {
+  background:
+    linear-gradient(180deg, rgba(255, 250, 247, 0.36) 0%, rgba(255, 242, 238, 0.24) 100%),
+    url('/assets/agribank-chat-bg.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+html.agribank [data-testid='theme-selector'],
+html.agribank [data-testid='new-chat-button'],
+html.agribank [data-testid='nav-agents-marketplace-button'] {
+  border-color: var(--border-light);
+}
+
+html.agribank .agribank-sidebar-rail {
+  background: linear-gradient(180deg, #b01c3a 0%, #94162f 58%, #7d1128 100%);
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.1);
+}
+
+html.agribank .agribank-sidebar-panel {
+  background:
+    linear-gradient(180deg, rgba(255, 250, 247, 0.96), rgba(255, 246, 242, 0.96)),
+    radial-gradient(circle at 12% 88%, rgba(176, 28, 58, 0.08), transparent 28%);
+  border-color: #efd7dc;
+}
+
+html.agribank .agribank-sidebar-rail button,
+html.agribank .agribank-sidebar-rail a {
+  color: var(--white);
+}
+
+html.agribank .agribank-sidebar-rail svg,
+html.agribank .agribank-sidebar-rail .text-text-primary,
+html.agribank .agribank-sidebar-rail .text-text-secondary {
+  color: currentColor;
+  stroke: currentColor;
+}
+
+html.agribank .agribank-sidebar-rail button:hover,
+html.agribank .agribank-sidebar-rail a:hover,
+html.agribank .agribank-sidebar-rail [aria-pressed='true'] {
+  background: rgba(255, 255, 255, 0.18);
+  color: var(--white);
+}
+
+html.agribank .agribank-sidebar-rail .border-border-light {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+html.agribank .agribank-sidebar-panel [data-testid='new-chat-button'] {
+  background: linear-gradient(180deg, #c72548 0%, #b01c3a 100%);
+  border-color: transparent;
+  color: var(--white);
+  box-shadow: 0 10px 24px rgba(176, 28, 58, 0.18);
+}
+
+html.agribank .agribank-sidebar-panel [data-testid='new-chat-button']:hover {
+  background: linear-gradient(180deg, #b01c3a 0%, #981733 100%);
+  color: var(--white);
+}
 .dark {
   --brand-purple: #e05273;
   --presentation: var(--gray-800);
@@ -158,8 +300,8 @@ html {
   --surface-tertiary: var(--gray-700);
   --surface-tertiary-alt: var(--gray-700);
   --surface-dialog: var(--gray-850);
-  --surface-submit: #c51f4a;
-  --surface-submit-hover: #df315d;
+  --surface-submit: var(--agribank-red);
+  --surface-submit-hover: var(--agribank-red-hover);
   --surface-destructive: var(--red-800);
   --surface-destructive-hover: var(--red-900);
   --surface-chat: var(--gray-700);
@@ -194,6 +336,102 @@ html {
   --chart-4: 280 65% 60%;
   --chart-5: 340 75% 55%;
   --switch-unchecked: 0 0% 40%;
+}
+
+html.agribank .bg-surface-primary-alt {
+  background-color: #fff6f3;
+}
+
+html.agribank .bg-surface-secondary,
+html.agribank .bg-surface-secondary-alt {
+  background-color: #fff4f2;
+}
+
+html.agribank .bg-surface-chat {
+  background-color: rgba(255, 253, 251, 0.96);
+  box-shadow: 0 16px 48px rgba(176, 28, 58, 0.12);
+}
+
+html.agribank .border-border-light {
+  border-color: #e8c2c9;
+}
+
+html.agribank [data-testid='new-chat-button'],
+html.agribank [data-testid='theme-selector'] {
+  border-color: #e8c2c9;
+  color: var(--agribank-red);
+}
+
+html.agribank [data-testid='new-chat-button']:hover,
+html.agribank [data-testid='theme-selector']:hover {
+  background-color: #f8e6e9;
+}
+
+html.agribank [data-testid='close-sidebar-button'],
+html.agribank [data-testid='open-sidebar-button'],
+html.agribank [data-testid='new-chat-button'],
+html.agribank [data-testid='nav-agents-marketplace-button'],
+html.agribank #bookmark-nav-menu-button,
+html.agribank #presets-button,
+html.agribank #export-menu-button,
+html.agribank aside button,
+html.agribank nav button,
+html.agribank header button,
+html.agribank .inline-flex.size-9,
+html.agribank .inline-flex.size-10 {
+  border-color: #e8c2c9;
+  color: var(--agribank-red);
+}
+
+html.agribank [data-testid='close-sidebar-button']:hover,
+html.agribank [data-testid='open-sidebar-button']:hover,
+html.agribank [data-testid='nav-agents-marketplace-button']:hover,
+html.agribank #bookmark-nav-menu-button:hover,
+html.agribank #presets-button:hover,
+html.agribank #export-menu-button:hover,
+html.agribank aside button:hover,
+html.agribank nav button:hover,
+html.agribank header button:hover,
+html.agribank .inline-flex.size-9:hover,
+html.agribank .inline-flex.size-10:hover {
+  background-color: #f8e6e9;
+  color: var(--agribank-red);
+}
+
+html.agribank aside svg,
+html.agribank nav svg,
+html.agribank header svg,
+html.agribank #chat-history-nav svg {
+  color: currentColor;
+  stroke: currentColor;
+}
+
+html.agribank [aria-pressed='true'],
+html.agribank [role='tab'][data-state='active'],
+html.agribank button[data-state='open'] {
+  background-color: var(--agribank-red);
+  color: var(--white);
+}
+
+html.agribank [aria-pressed='true'] svg,
+html.agribank [role='tab'][data-state='active'] svg,
+html.agribank button[data-state='open'] svg {
+  color: var(--white);
+  stroke: currentColor;
+}
+
+html.agribank .select-item svg,
+html.agribank .popover-ui svg,
+html.agribank .account-settings-popover svg {
+  color: var(--agribank-red);
+  stroke: currentColor;
+}
+
+html.agribank .bg-surface-submit svg,
+html.agribank button.bg-surface-submit svg,
+html.agribank button[class*='bg-surface-submit'] svg {
+  color: var(--white);
+  stroke: currentColor;
 }
 .gizmo {
   --text-primary: var(--gizmo-gray-950);

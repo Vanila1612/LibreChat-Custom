@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <base href="/" />
-    <meta name="theme-color" content="#171717" />
+    <meta name="theme-color" content="#B01C3A" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -27,13 +27,20 @@
       let backgroundColor;
 
       if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
         backgroundColor = '#0d0d0d';
+      } else if (theme === 'agribank' || !theme) {
+        document.documentElement.classList.add('light', 'agribank');
+        backgroundColor = '#ffffff';
       } else if (theme === 'light') {
+        document.documentElement.classList.add('light');
         backgroundColor = '#ffffff';
       } else if (theme === 'system') {
         const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.classList.add(prefersDarkScheme ? 'dark' : 'light');
         backgroundColor = prefersDarkScheme ? '#0d0d0d' : '#ffffff';
       } else {
+        document.documentElement.classList.add('light', 'agribank');
         backgroundColor = '#ffffff';
       }
 

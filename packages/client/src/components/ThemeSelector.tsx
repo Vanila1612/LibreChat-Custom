@@ -1,5 +1,5 @@
 import { useContext, useCallback, useEffect, useState } from 'react';
-import { Sun, Moon, Monitor } from 'lucide-react';
+import { Landmark, Sun, Moon, Monitor } from 'lucide-react';
 import { ThemeContext, isDark } from '../theme';
 import { useLocalize } from '../hooks';
 
@@ -9,12 +9,13 @@ declare global {
   }
 }
 
-type ThemeType = 'system' | 'dark' | 'light';
+type ThemeType = 'system' | 'dark' | 'light' | 'agribank';
 
 const Theme = ({ theme, onChange }: { theme: string; onChange: (value: string) => void }) => {
   const localize = useLocalize();
 
   const themeIcons: Record<ThemeType, JSX.Element> = {
+    agribank: <Landmark aria-hidden="true" />,
     system: <Monitor aria-hidden="true" />,
     dark: <Moon aria-hidden="true" />,
     light: <Sun aria-hidden="true" />,
