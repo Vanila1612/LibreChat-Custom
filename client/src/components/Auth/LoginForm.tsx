@@ -32,10 +32,8 @@ const LoginForm: React.FC<TLoginFormProps> = ({ onSubmit, startupConfig, error, 
   const validTheme = isDark(theme) ? 'dark' : 'light';
   const requireCaptcha = Boolean(startupConfig.turnstile?.siteKey);
   const authInputClassName =
-    'webkit-dark-styles transition-color peer w-full rounded-2xl border border-border-light bg-surface-primary px-3.5 pb-2.5 pt-3 text-text-primary duration-200 hover:border-border-light focus:border-green-500 focus:outline-none focus-visible:border-green-500';
+    'webkit-dark-styles transition-color w-full rounded-2xl border border-border-light bg-surface-primary px-5 py-3 text-text-primary duration-200 placeholder:text-text-secondary-alt hover:border-border-light focus:border-surface-submit focus:outline-none focus-visible:border-surface-submit';
   const authSecretInputClassName = `${authInputClassName} h-auto pr-12`;
-  const authLabelClassName =
-    'absolute start-3 top-1.5 z-10 origin-[0] -translate-y-4 scale-75 transform bg-surface-primary px-2 text-sm text-text-secondary-alt duration-200 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-1.5 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:px-2 peer-focus:text-green-600 dark:peer-focus:text-green-500 rtl:peer-focus:left-auto rtl:peer-focus:translate-x-1/4';
   const authSecretButtonClassName =
     'size-9 rounded-xl text-text-secondary-alt hover:bg-transparent hover:text-text-primary';
 
@@ -110,13 +108,12 @@ const LoginForm: React.FC<TLoginFormProps> = ({ onSubmit, startupConfig, error, 
               })}
               aria-invalid={!!errors.email}
               className={authInputClassName}
-              placeholder=" "
+              placeholder={
+                useUsernameLogin
+                  ? localize('com_auth_username').replace(/ \(.*$/, '')
+                  : localize('com_auth_email_address')
+              }
             />
-            <label htmlFor="email" className={authLabelClassName}>
-              {useUsernameLogin
-                ? localize('com_auth_username').replace(/ \(.*$/, '')
-                : localize('com_auth_email_address')}
-            </label>
           </div>
           {renderError('email')}
         </div>
@@ -136,9 +133,7 @@ const LoginForm: React.FC<TLoginFormProps> = ({ onSubmit, startupConfig, error, 
               })}
               aria-invalid={!!errors.password}
               className={authSecretInputClassName}
-              placeholder=" "
-              label={localize('com_auth_password')}
-              labelClassName={authLabelClassName}
+              placeholder={localize('com_auth_password')}
               controlsClassName="right-2"
               buttonClassName={authSecretButtonClassName}
             />

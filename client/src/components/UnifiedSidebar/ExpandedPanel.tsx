@@ -48,7 +48,7 @@ const NewChatButton = memo(function NewChatButton({
           href="/c/new"
           data-testid="new-chat-button"
           aria-label={localize('com_ui_new_chat')}
-          className="flex h-9 w-9 items-center justify-center rounded-lg transition-colors hover:bg-surface-hover"
+          className="agribank-rail-button flex h-9 w-9 items-center justify-center rounded-lg transition-colors hover:bg-surface-hover"
           onClick={handleClick}
         >
           <SquarePen className="h-5 w-5 text-text-primary" />
@@ -106,8 +106,10 @@ const NavIconButton = memo(function NavIconButton({
           aria-label={localize(link.title)}
           aria-pressed={isActive}
           className={cn(
-            'h-9 w-9 rounded-lg',
-            isActive ? 'bg-surface-active-alt text-text-primary' : 'text-text-secondary',
+            'agribank-rail-button h-9 w-9 rounded-lg',
+            isActive
+              ? 'agribank-rail-button-active bg-surface-active-alt text-text-primary'
+              : 'text-text-secondary',
           )}
           onClick={handleClick}
         >
@@ -149,7 +151,7 @@ function ExpandedPanel({
             variant="ghost"
             aria-label={localize(toggleLabel)}
             aria-expanded={expanded}
-            className="h-9 w-9 rounded-lg"
+            className="agribank-rail-button h-9 w-9 rounded-lg"
             onClick={toggleClick}
           >
             <Sidebar aria-hidden="true" className="h-5 w-5 text-text-primary" />
